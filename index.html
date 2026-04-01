@@ -217,35 +217,34 @@
 
   /* SERVICES TEASER */
   #home-services { background:var(--black); }
-  .teaser-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:18px; }
+  .teaser-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media(max-width:900px){ .teaser-grid { grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:500px){ .teaser-grid { grid-template-columns:1fr; } }
   .t-card {
-    background:var(--grey); border:1px solid rgba(255,255,255,.05); border-radius:16px;
-    padding:0; position:relative; overflow:hidden;
-    transition:border-color .3s,transform .35s,box-shadow .35s;
+    background:var(--grey); border:1px solid rgba(255,255,255,.07); border-radius:16px;
+    overflow:hidden; position:relative;
+    transition:border-color .3s, transform .35s, box-shadow .35s;
     display:flex; flex-direction:column;
   }
+  .t-card:hover { border-color:rgba(201,161,74,.55); transform:translateY(-5px); box-shadow:0 14px 44px rgba(201,161,74,.15); }
   .t-card-img {
-    width:100%; height:160px; background-size:cover; background-position:center top;
-    position:relative; flex-shrink:0;
+    width:100%; height:180px; flex-shrink:0;
+    background-size:cover; background-position:center;
+    position:relative;
   }
   .t-card-img::after {
     content:''; position:absolute; inset:0;
-    background:linear-gradient(to bottom, transparent 40%, var(--grey) 100%);
+    background:linear-gradient(to bottom, transparent 50%, var(--grey) 100%);
   }
-  .t-card-body { padding:18px 22px 26px; position:relative; }
-  .t-card::after {
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(135deg,rgba(201,161,74,.07) 0%,transparent 60%);
-    opacity:0; transition:opacity .3s; border-radius:inherit;
+  .t-card-body {
+    padding:16px 20px 22px; display:flex; flex-direction:column; gap:6px; flex:1;
   }
-  .t-card:hover { border-color:rgba(201,161,74,.6); transform:translateY(-5px); box-shadow:0 14px 40px rgba(201,161,74,.14); }
-  .t-card:hover::after { opacity:1; }
-  .t-icon { font-size:2rem; margin-bottom:14px; display:block; }
-  .t-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.88rem; text-transform:uppercase; letter-spacing:.8px; margin-bottom:5px; }
-  .t-desc { font-size:.7rem; color:rgba(255,255,255,.4); line-height:1.5; margin-bottom:16px; }
-  .t-price { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.9rem; color:var(--gold); line-height:1; }
-  .t-price .cur { font-size:.85rem; font-weight:700; }
-  .t-bar { position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold),transparent); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
+  .t-icon { color:var(--gold); display:flex; align-items:center; gap:8px; margin-bottom:2px; }
+  .t-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.9rem; text-transform:uppercase; letter-spacing:.8px; color:var(--white); }
+  .t-desc { font-size:.72rem; color:rgba(255,255,255,.45); line-height:1.55; flex:1; }
+  .t-price { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.7rem; color:var(--gold); line-height:1; margin-top:6px; }
+  .t-price .cur { font-size:.8rem; font-weight:700; vertical-align:super; }
+  .t-bar { height:2px; background:linear-gradient(90deg,var(--gold),transparent); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
   .t-card:hover .t-bar { transform:scaleX(1); }
   .see-all-wrap { text-align:center; margin-top:44px; }
 
@@ -1084,7 +1083,7 @@
         <div class="t-card rv d1">
           <div class="t-card-img" style="background-image:url('Screenshot_20260401_144946_Maps.png')"></div>
           <div class="t-card-body">
-            <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-scissors"/></svg></span>
+            <div class="t-icon"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-scissors"/></svg></div>
             <div class="t-name">Haircut</div>
             <div class="t-desc">Any style — scissors or clippers</div>
             <div class="t-price"><span class="cur">R</span>100</div>
@@ -1094,7 +1093,7 @@
         <div class="t-card rv d2">
           <div class="t-card-img" style="background-image:url('Screenshot_20260401_144943_Maps.png')"></div>
           <div class="t-card-body">
-            <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-scissors"/></svg></span>
+            <div class="t-icon"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-scissors"/></svg></div>
             <div class="t-name">Fade Cut</div>
             <div class="t-desc">Skin, low, mid or high — we read the shape</div>
             <div class="t-price"><span class="cur">R</span>110</div>
@@ -1104,7 +1103,7 @@
         <div class="t-card rv d3">
           <div class="t-card-img" style="background-image:url('Screenshot_20260401_144920_Maps.png')"></div>
           <div class="t-card-body">
-            <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg></span>
+            <div class="t-icon"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg></div>
             <div class="t-name">Beard Trim</div>
             <div class="t-desc">Define it. Tighten it. Own it.</div>
             <div class="t-price"><span class="cur">R</span>60</div>
@@ -1114,27 +1113,31 @@
         <div class="t-card rv d4">
           <div class="t-card-img" style="background-image:url('Screenshot_20260401_144902_Maps.png')"></div>
           <div class="t-card-body">
-            <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg></span>
+            <div class="t-icon"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg></div>
             <div class="t-name">Kids Cut</div>
             <div class="t-desc">Ages 10 &amp; up — patient, calm, every time</div>
             <div class="t-price"><span class="cur">R</span>80</div>
           </div>
           <div class="t-bar"></div>
         </div>
-        <div class="t-card rv d3" style="position:relative;overflow:hidden">
-          <div style="position:absolute;inset:0;background:url('Screenshot_20260401_144943_Maps.png') center/cover;opacity:.18"></div>
-          <span class="t-icon" style="position:relative"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-ruler"/></svg></span>
-          <div class="t-name" style="position:relative">Line Up</div>
-          <div class="t-desc" style="position:relative">The detail that separates good from great</div>
-          <div class="t-price" style="position:relative"><span class="cur">R</span>30</div>
+        <div class="t-card rv d5">
+          <div class="t-card-img" style="background-image:url('Screenshot_20260401_144852_Maps.png')"></div>
+          <div class="t-card-body">
+            <div class="t-icon"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-ruler"/></svg></div>
+            <div class="t-name">Line Up</div>
+            <div class="t-desc">The detail that separates good from great</div>
+            <div class="t-price"><span class="cur">R</span>30</div>
+          </div>
           <div class="t-bar"></div>
         </div>
-        <div class="t-card rv d4" style="position:relative;overflow:hidden">
-          <div style="position:absolute;inset:0;background:url('Screenshot_20260401_144928_Maps.png') center/cover;opacity:.18"></div>
-          <span class="t-icon" style="position:relative"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-flame"/></svg></span>
-          <div class="t-name" style="position:relative">Hot Towel Shave</div>
-          <div class="t-desc" style="position:relative">Lay back. Let the blade do the talking.</div>
-          <div class="t-price" style="position:relative"><span class="cur">R</span>100</div>
+        <div class="t-card rv d6">
+          <div class="t-card-img" style="background-image:url('Screenshot_20260401_144928_Maps.png')"></div>
+          <div class="t-card-body">
+            <div class="t-icon"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-flame"/></svg></div>
+            <div class="t-name">Hot Towel Shave</div>
+            <div class="t-desc">Lay back. Let the blade do the talking.</div>
+            <div class="t-price"><span class="cur">R</span>100</div>
+          </div>
           <div class="t-bar"></div>
         </div>
       </div>
