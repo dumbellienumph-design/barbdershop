@@ -220,9 +220,19 @@
   .teaser-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:18px; }
   .t-card {
     background:var(--grey); border:1px solid rgba(255,255,255,.05); border-radius:16px;
-    padding:30px 22px 26px; position:relative; overflow:hidden;
+    padding:0; position:relative; overflow:hidden;
     transition:border-color .3s,transform .35s,box-shadow .35s;
+    display:flex; flex-direction:column;
   }
+  .t-card-img {
+    width:100%; height:160px; background-size:cover; background-position:center top;
+    position:relative; flex-shrink:0;
+  }
+  .t-card-img::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(to bottom, transparent 40%, var(--grey) 100%);
+  }
+  .t-card-body { padding:18px 22px 26px; position:relative; }
   .t-card::after {
     content:''; position:absolute; inset:0;
     background:linear-gradient(135deg,rgba(201,161,74,.07) 0%,transparent 60%);
@@ -1072,31 +1082,43 @@
       <div class="gold-rule rv d2"></div>
       <div class="teaser-grid">
         <div class="t-card rv d1">
-          <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-scissors"/></svg></span>
-          <div class="t-name">Haircut</div>
-          <div class="t-desc">Any style — scissors or clippers</div>
-          <div class="t-price"><span class="cur">R</span>100</div>
+          <div class="t-card-img" style="background-image:url('Screenshot_20260401_144946_Maps.png')"></div>
+          <div class="t-card-body">
+            <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-scissors"/></svg></span>
+            <div class="t-name">Haircut</div>
+            <div class="t-desc">Any style — scissors or clippers</div>
+            <div class="t-price"><span class="cur">R</span>100</div>
+          </div>
           <div class="t-bar"></div>
         </div>
         <div class="t-card rv d2">
-          <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-scissors"/></svg></span>
-          <div class="t-name">Fade Cut</div>
-          <div class="t-desc">Skin, low, mid or high — we read the shape</div>
-          <div class="t-price"><span class="cur">R</span>110</div>
+          <div class="t-card-img" style="background-image:url('Screenshot_20260401_144943_Maps.png')"></div>
+          <div class="t-card-body">
+            <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-scissors"/></svg></span>
+            <div class="t-name">Fade Cut</div>
+            <div class="t-desc">Skin, low, mid or high — we read the shape</div>
+            <div class="t-price"><span class="cur">R</span>110</div>
+          </div>
           <div class="t-bar"></div>
         </div>
         <div class="t-card rv d3">
-          <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg></span>
-          <div class="t-name">Beard Trim</div>
-          <div class="t-desc">Define it. Tighten it. Own it.</div>
-          <div class="t-price"><span class="cur">R</span>60</div>
+          <div class="t-card-img" style="background-image:url('Screenshot_20260401_144920_Maps.png')"></div>
+          <div class="t-card-body">
+            <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg></span>
+            <div class="t-name">Beard Trim</div>
+            <div class="t-desc">Define it. Tighten it. Own it.</div>
+            <div class="t-price"><span class="cur">R</span>60</div>
+          </div>
           <div class="t-bar"></div>
         </div>
         <div class="t-card rv d4">
-          <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg></span>
-          <div class="t-name">Kids Cut</div>
-          <div class="t-desc">Ages 10 &amp; up — patient, calm, every time</div>
-          <div class="t-price"><span class="cur">R</span>80</div>
+          <div class="t-card-img" style="background-image:url('Screenshot_20260401_144902_Maps.png')"></div>
+          <div class="t-card-body">
+            <span class="t-icon"><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg></span>
+            <div class="t-name">Kids Cut</div>
+            <div class="t-desc">Ages 10 &amp; up — patient, calm, every time</div>
+            <div class="t-price"><span class="cur">R</span>80</div>
+          </div>
           <div class="t-bar"></div>
         </div>
         <div class="t-card rv d3" style="position:relative;overflow:hidden">
