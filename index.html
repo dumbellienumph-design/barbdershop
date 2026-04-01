@@ -217,34 +217,82 @@
 
   /* SERVICES TEASER */
   #home-services { background:var(--black); }
-  .teaser-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  @media(max-width:900px){ .teaser-grid { grid-template-columns:repeat(2,1fr); } }
-  @media(max-width:500px){ .teaser-grid { grid-template-columns:1fr; } }
+  .teaser-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    align-items:stretch;
+  }
+  @media(max-width:860px){ .teaser-grid { grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:480px){ .teaser-grid { grid-template-columns:1fr; } }
   .t-card {
-    background:var(--grey); border:1px solid rgba(255,255,255,.07); border-radius:16px;
-    overflow:hidden; position:relative;
-    transition:border-color .3s, transform .35s, box-shadow .35s;
-    display:flex; flex-direction:column;
+    background:var(--grey);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:14px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:border-color .3s, transform .3s, box-shadow .3s;
   }
-  .t-card:hover { border-color:rgba(201,161,74,.55); transform:translateY(-5px); box-shadow:0 14px 44px rgba(201,161,74,.15); }
+  .t-card:hover {
+    border-color:rgba(201,161,74,.5);
+    transform:translateY(-4px);
+    box-shadow:0 12px 40px rgba(201,161,74,.13);
+  }
   .t-card-img {
-    width:100%; height:180px; flex-shrink:0;
-    background-size:cover; background-position:center;
-    position:relative;
-  }
-  .t-card-img::after {
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(to bottom, transparent 50%, var(--grey) 100%);
+    width:100%;
+    height:200px;
+    flex-shrink:0;
+    background-size:cover;
+    background-position:center 30%;
   }
   .t-card-body {
-    padding:16px 20px 22px; display:flex; flex-direction:column; gap:6px; flex:1;
+    padding:20px 22px 24px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
   }
-  .t-icon { color:var(--gold); display:flex; align-items:center; gap:8px; margin-bottom:2px; }
-  .t-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.9rem; text-transform:uppercase; letter-spacing:.8px; color:var(--white); }
-  .t-desc { font-size:.72rem; color:rgba(255,255,255,.45); line-height:1.55; flex:1; }
-  .t-price { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.7rem; color:var(--gold); line-height:1; margin-top:6px; }
-  .t-price .cur { font-size:.8rem; font-weight:700; vertical-align:super; }
-  .t-bar { height:2px; background:linear-gradient(90deg,var(--gold),transparent); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
+  .t-icon {
+    color:var(--gold);
+    margin-bottom:12px;
+  }
+  .t-name {
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    font-size:.85rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--white);
+    margin-bottom:8px;
+  }
+  .t-desc {
+    font-size:.75rem;
+    color:rgba(255,255,255,.45);
+    line-height:1.6;
+    flex:1;
+    margin-bottom:16px;
+  }
+  .t-price {
+    font-family:'Montserrat',sans-serif;
+    font-weight:900;
+    font-size:1.8rem;
+    color:var(--gold);
+    line-height:1;
+  }
+  .t-price .cur {
+    font-size:.75rem;
+    font-weight:700;
+    vertical-align:super;
+    margin-right:1px;
+  }
+  .t-bar {
+    height:2px;
+    background:linear-gradient(90deg,var(--gold),transparent);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .4s;
+    flex-shrink:0;
+  }
   .t-card:hover .t-bar { transform:scaleX(1); }
   .see-all-wrap { text-align:center; margin-top:44px; }
 
@@ -635,7 +683,7 @@
   .ab-story { padding: 88px 48px; background: var(--black); }
   .ab-story-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center; }
   .ab-img-wrap { position: relative; }
-  .ab-img-main { width: 100%; border-radius: 18px; display: block; aspect-ratio: 4/5; object-fit: cover; border: 1px solid rgba(201,161,74,.15); }
+  .ab-img-main { width: 100%; border-radius: 18px; display: block; aspect-ratio: 3/4; object-fit: cover; object-position: center 15%; border: 1px solid rgba(201,161,74,.15); }
   .ab-img-badge {
     position: absolute; bottom: -22px; right: -22px;
     background: var(--gold); color: var(--black);
@@ -1654,28 +1702,6 @@
     </div>
   </section>
 
-  <!-- Shop Front Through the Years -->
-  <section class="ab-shopfront">
-    <div class="ab-shopfront-inner">
-      <p class="sec-lbl rv">Then &amp; Now</p>
-      <h2 class="sec-title rv d1">The Shop Through the Years</h2>
-      <div class="gold-rule rv d2"></div>
-      <p class="sf-desc rv d3">From humble beginnings on Schroder Street to the shop you see today — swipe through our story, one photo at a time.</p>
-      <div class="sf-scroll rv d4" id="sf-scroll">
-        <div class="sf-photo" onclick="openSF(0)"><img src="Screenshot_20260401_145122_Maps.png" alt="Early Days" loading="lazy"><div class="sf-photo-lbl">The Beginning</div></div>
-        <div class="sf-photo" onclick="openSF(1)"><img src="Screenshot_20260401_145105_Maps.png" alt="Front of Shop" loading="lazy"><div class="sf-photo-lbl">Taking Shape</div></div>
-        <div class="sf-photo" onclick="openSF(2)"><img src="Screenshot_20260401_144905_Maps.png" alt="Owner at the door" loading="lazy"><div class="sf-photo-lbl">The Owner's Door</div></div>
-        <div class="sf-photo" onclick="openSF(3)"><img src="Screenshot_20260401_145032_Maps.png" alt="Shop Sign" loading="lazy"><div class="sf-photo-lbl">The Sign</div></div>
-        <div class="sf-photo" onclick="openSF(4)"><img src="Screenshot_20260401_144940_Maps.png" alt="Shop Front" loading="lazy"><div class="sf-photo-lbl">Open for Business</div></div>
-        <div class="sf-photo" onclick="openSF(5)"><img src="Screenshot_20260401_144848_Maps.png" alt="Front View" loading="lazy"><div class="sf-photo-lbl">Growing Strong</div></div>
-        <div class="sf-photo" onclick="openSF(6)"><img src="Screenshot_20260401_145037_Maps.png" alt="Storefront" loading="lazy"><div class="sf-photo-lbl">Schroder Street</div></div>
-        <div class="sf-photo" onclick="openSF(7)"><img src="Screenshot_20260401_145108_Maps.png" alt="Shop front with owner" loading="lazy"><div class="sf-photo-lbl">29 Schroder St</div></div>
-        <div class="sf-photo" onclick="openSF(8)"><img src="Screenshot_20260401_145125_Maps.png" alt="Recent front" loading="lazy"><div class="sf-photo-lbl">Looking Good</div></div>
-        <div class="sf-photo" onclick="openSF(9)"><img src="Screenshot_20260401_144846_Maps.png" alt="Today" loading="lazy"><div class="sf-photo-lbl">Today</div></div>
-        <div class="sf-photo" onclick="openSF(10)"><img src="Screenshot_20260401_145142_Maps.png" alt="Best shot" loading="lazy"><div class="sf-photo-lbl">My New Barber</div></div>
-      </div>
-    </div>
-  </section>
 
   <!-- Our Values -->
   <section class="ab-values">
