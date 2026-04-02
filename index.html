@@ -152,9 +152,19 @@
   }
   .hero-bg {
     position:absolute; inset:0;
-    background:
-      linear-gradient(160deg, rgba(11,11,11,0.55) 0%, rgba(11,11,11,0.35) 50%, rgba(11,11,11,0.60) 100%),
-      url('Screenshot_20260401_144946_Maps.png') center center/contain no-repeat;
+    background-color: #0B0B0B;
+    background-image:
+      linear-gradient(to bottom, rgba(11,11,11,0.45) 0%, rgba(11,11,11,0.25) 40%, rgba(11,11,11,0.55) 100%),
+      url('Screenshot_20260401_145142_Maps.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+  }
+  @media(max-width:768px){
+    .hero-bg {
+      background-size: cover;
+      background-position: center top;
+    }
   }
   #hero-canvas { position:absolute; inset:0; pointer-events:none; }
   .barber-pole {
