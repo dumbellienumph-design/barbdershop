@@ -157,8 +157,8 @@
       linear-gradient(to bottom, rgba(11,11,11,0.45) 0%, rgba(11,11,11,0.25) 40%, rgba(11,11,11,0.55) 100%),
       url('Screenshot_20260401_145142_Maps.png');
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
+    background-position: center top;
+    background-size: cover;
   }
   @media(max-width:768px){
     .hero-bg {
@@ -253,8 +253,8 @@
     width:100%;
     height:260px;
     flex-shrink:0;
-    background-size:contain;
-    background-position:center;
+    background-size:cover;
+    background-position:center top;
     background-repeat:no-repeat;
     background-color:var(--grey);
   }
@@ -319,12 +319,12 @@
   .gal-card:hover { box-shadow:0 0 0 2px var(--gold),0 20px 60px rgba(201,161,74,.2); }
   .gal-bg { position:absolute; inset:0; transition:transform .5s; }
   .gal-card:hover .gal-bg { transform:scale(1.06); }
-  .gc1 .gal-bg{background:url('Screenshot_20260401_144943_Maps.png') center/contain; background-repeat:no-repeat}
-  .gc2 .gal-bg{background:url('Screenshot_20260401_144858_Maps.png') center/contain; background-repeat:no-repeat}
-  .gc3 .gal-bg{background:url('Screenshot_20260401_144920_Maps.png') center/contain; background-repeat:no-repeat}
-  .gc4 .gal-bg{background:url('Screenshot_20260401_144902_Maps.png') center/contain; background-repeat:no-repeat}
-  .gc5 .gal-bg{background:url('Screenshot_20260401_144855_Maps.png') center/contain; background-repeat:no-repeat}
-  .gc6 .gal-bg{background:url('Screenshot_20260401_144912_Maps.png') center/contain; background-repeat:no-repeat}
+  .gc1 .gal-bg{background:url('Screenshot_20260401_144943_Maps.png') center/cover}
+  .gc2 .gal-bg{background:url('Screenshot_20260401_144858_Maps.png') center/cover}
+  .gc3 .gal-bg{background:url('Screenshot_20260401_144920_Maps.png') center/cover}
+  .gc4 .gal-bg{background:url('Screenshot_20260401_144902_Maps.png') center/cover}
+  .gc5 .gal-bg{background:url('Screenshot_20260401_144855_Maps.png') center/cover}
+  .gc6 .gal-bg{background:url('Screenshot_20260401_144912_Maps.png') center/cover}
   .gal-pat { position:absolute; inset:0; opacity:1; background:linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.35) 50%, rgba(0,0,0,.2) 100%) !important; }
   .gal-ov { position:absolute; inset:0; background:linear-gradient(to top,rgba(201,161,74,.18) 0%,transparent 55%); opacity:0; transition:opacity .4s; z-index:1; }
   .gal-card:hover .gal-ov { opacity:1; }
@@ -559,7 +559,7 @@
   .f-card.shave-card { padding: 0; overflow: hidden; }
   .f-card-img {
     width: 100%; height: 200px;
-    background-size: contain; background-position: center; background-repeat: no-repeat;
+    background-size: cover; background-position: center top; background-repeat: no-repeat;
     position: relative; flex-shrink: 0;
   }
   .f-card-img::after {
@@ -2274,7 +2274,7 @@
     document.getElementById('so-inc').innerHTML = d.inc.map(i => `<li><span class="ck">✓</span>${i}</li>`).join('');
     document.getElementById('so-imgs').innerHTML = d.imgs.map(img => {
       const bgStyle = img.url
-        ? `background:url('${img.url}') center/contain no-repeat; background-blend-mode:multiply`
+        ? `background:url('${img.url}') center top/cover no-repeat; background-blend-mode:multiply`
         : `background:${img.bg}`;
       const overlay = img.url ? `<div style="position:absolute;inset:0;background:rgba(0,0,0,.35)"></div>` : '';
       return `<div class="svc-ig-card"><div class="bg" style="${bgStyle}"></div>${overlay}<span>${img.l}</span></div>`;
