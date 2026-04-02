@@ -149,36 +149,32 @@
   /* HERO */
   #hero {
     position:relative; min-height:100vh;
-    display:flex; align-items:stretch; overflow:hidden;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; overflow:hidden;
   }
   .hero-bg {
     position:absolute; inset:0;
-    background: linear-gradient(135deg,#090909 0%,#111 100%);
-  }
-  .hero-bg::before {
-    content:''; position:absolute; inset:0;
-    background: radial-gradient(ellipse 65% 75% at 28% 55%, rgba(201,161,74,.07) 0%, transparent 100%);
+    background-color:#0B0B0B;
+    background-image:
+      linear-gradient(to bottom, rgba(11,11,11,0.25) 0%, rgba(11,11,11,0.1) 40%, rgba(11,11,11,0.35) 100%),
+      url('Screenshot_20260401_145142_Maps.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
   }
   #hero-canvas { position:absolute; inset:0; pointer-events:none; }
+  .barber-pole {
+    position:absolute; right:72px; top:50%; transform:translateY(-50%);
+    width:26px; height:170px; border-radius:13px; overflow:hidden; opacity:.45;
+  }
+  .barber-pole::before {
+    content:''; position:absolute; inset:0;
+    background:repeating-linear-gradient(-45deg,#c0392b 0,#c0392b 10px,#fff 10px,#fff 20px,#1a3b8c 20px,#1a3b8c 30px,#fff 30px,#fff 40px);
+    background-size:100% 60px; animation:poleS 3s linear infinite;
+  }
   @keyframes poleS { to { background-position:0 60px; } }
 
-  /* ── LEFT COLUMN ── */
-  .hero-left {
-    position:relative; z-index:10;
-    flex: 0 0 55%;
-    display:flex; flex-direction:column; justify-content:center;
-    padding: 120px 64px 80px 80px;
-  }
-  .hero-left-pole {
-    position:absolute; left:28px; top:50%; transform:translateY(-50%);
-    width:20px; height:140px; border-radius:10px; overflow:hidden; opacity:.3;
-  }
-  .hero-left-pole::before {
-    content:''; position:absolute; inset:0;
-    background:repeating-linear-gradient(-45deg,#c0392b 0,#c0392b 8px,#fff 8px,#fff 16px,#1a3b8c 16px,#1a3b8c 24px,#fff 24px,#fff 32px);
-    background-size:100% 48px; animation:poleS 3s linear infinite;
-  }
-  .hero-content { position:relative; z-index:10; padding:0; max-width:540px; }
+  .hero-content { position:relative; z-index:10; padding:0 24px; max-width:920px; }
   .hero-badge {
     display:inline-flex; align-items:center; gap:8px;
     background:rgba(201,161,74,.1); border:1px solid rgba(201,161,74,.3);
@@ -189,7 +185,7 @@
   }
   .hero-title {
     font-family:'Montserrat',sans-serif; font-weight:900;
-    font-size:clamp(2.8rem,5.5vw,5.5rem); line-height:.95;
+    font-size:clamp(3rem,8.5vw,7rem); line-height:.95;
     text-transform:uppercase; letter-spacing:-2px;
     animation:fdU .9s .1s ease both;
   }
@@ -203,70 +199,22 @@
   .hero-title .l2 { display:block; color:var(--white); -webkit-text-fill-color:var(--white); }
   @keyframes shimmer { to { background-position:300% center; } }
   .hero-sub {
-    font-family:'Montserrat',sans-serif; font-size:clamp(.88rem,1.4vw,1.1rem);
+    font-family:'Montserrat',sans-serif; font-size:clamp(.92rem,2vw,1.22rem);
     font-weight:600; color:var(--gold); letter-spacing:3px;
-    margin:22px 0 42px; min-height:2em; animation:fdU .9s .25s ease both;
+    margin:22px 0 46px; min-height:2em; animation:fdU .9s .25s ease both;
   }
   #tw { border-right:2px solid var(--gold); padding-right:3px; animation:twBlink 1.1s step-end infinite; }
-  .hero-btns { display:flex; gap:14px; flex-wrap:wrap; animation:fdU .9s .4s ease both; }
-
-  /* ── RIGHT COLUMN ── */
-  .hero-right {
-    flex: 0 0 45%;
-    position:relative; overflow:hidden;
-  }
-  .hero-right img {
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit:cover; object-position:center 15%;
-  }
-  .hero-right::before {
-    content:''; position:absolute;
-    top:0; left:0; bottom:0; width:140px;
-    background:linear-gradient(to right,#0B0B0B,transparent);
-    z-index:2;
-  }
-  .hero-right::after {
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(to bottom,rgba(11,11,11,.5) 0%,transparent 25%,transparent 65%,rgba(11,11,11,.7) 100%);
-    z-index:1;
-  }
-  .hero-right-stat {
-    position:absolute; bottom:44px; right:28px; z-index:3;
-    background:rgba(11,11,11,.82); backdrop-filter:blur(14px);
-    border:1px solid rgba(201,161,74,.28); border-radius:14px;
-    padding:16px 22px; display:flex; flex-direction:column; gap:4px;
-    animation:fdU 1s .5s ease both;
-  }
-  .hero-right-stat .st-num {
-    font-family:'Montserrat',sans-serif; font-weight:900;
-    font-size:1.5rem; color:var(--gold); line-height:1;
-  }
-  .hero-right-stat .st-lbl {
-    font-size:.6rem; letter-spacing:2.5px; text-transform:uppercase;
-    color:rgba(255,255,255,.5); font-family:'Montserrat',sans-serif; font-weight:600;
-  }
-
+  .hero-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; animation:fdU .9s .4s ease both; }
   .scroll-hint {
-    position:absolute; bottom:32px; left:27.5%; transform:translateX(-50%);
+    position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
     display:flex; flex-direction:column; align-items:center; gap:5px; opacity:.4;
-    animation:fdU 1s 1.3s ease both; z-index:20;
+    animation:fdU 1s 1.3s ease both;
   }
   .scroll-hint span { font-size:.58rem; letter-spacing:2.5px; text-transform:uppercase; font-family:'Montserrat',sans-serif; }
   .scroll-hint .ln { width:1px; height:36px; background:linear-gradient(to bottom,var(--gold),transparent); animation:sLine 1.6s ease-in-out infinite; }
   @keyframes sLine { 0%,100%{transform:scaleY(1);opacity:.5} 50%{transform:scaleY(.4);opacity:1} }
-
-  /* Mobile hero */
-  @media(max-width:900px){
-    #hero { flex-direction:column; }
-    .hero-left { flex:none; width:100%; padding:110px 28px 40px; align-items:center; text-align:center; }
-    .hero-content { max-width:100%; }
-    .hero-btns { justify-content:center; }
-    .hero-right { flex:none; width:100%; height:52vh; }
-    .hero-right::before { width:0; }
-    .hero-right::after { background:linear-gradient(to bottom,rgba(11,11,11,.55) 0%,transparent 30%,transparent 60%,rgba(11,11,11,.75) 100%); }
-    .hero-right-stat { bottom:20px; right:20px; }
-    .scroll-hint { left:50%; }
+  @media(max-width:768px){
+    .hero-bg { background-size:cover; background-position:center top; }
   }
 
   /* INFO BAR */
@@ -304,8 +252,10 @@
     width:100%;
     height:260px;
     flex-shrink:0;
-    background-size:cover;
-    background-position:center top;
+    aspect-ratio: 4/5;
+    height: auto;
+    background-size:contain;
+    background-position:center center;
     background-repeat:no-repeat;
     background-color:var(--grey);
   }
@@ -610,7 +560,7 @@
   .f-card.shave-card { padding: 0; overflow: hidden; }
   .f-card-img {
     width: 100%; height: 200px;
-    background-size: cover; background-position: center top; background-repeat: no-repeat;
+    height: auto; aspect-ratio: 4/5; background-size: contain; background-position: center center; background-repeat: no-repeat;
     position: relative; flex-shrink: 0;
   }
   .f-card-img::after {
@@ -1155,33 +1105,19 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <canvas id="hero-canvas"></canvas>
-
-    <!-- LEFT -->
-    <div class="hero-left">
-      <div class="hero-left-pole"></div>
-      <div class="hero-content">
-        <div class="hero-badge"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-scissors"/></svg> Professional Barbershop · Upington</div>
-        <h1 class="hero-title">
-          <span class="l1">My New</span>
-          <span class="l2">Barber Shop</span>
-        </h1>
-        <p class="hero-sub"><span id="tw"></span></p>
-        <div class="hero-btns">
-          <a href="tel:0678123200" class="btn-gold pulse"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-phone"/></svg> Call Now</a>
-          <a href="https://maps.google.com/?q=29+Schroder+St,+Upington" target="_blank" class="btn-outline"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-map-pin"/></svg> Get Directions</a>
-        </div>
+    <div class="barber-pole"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-scissors"/></svg> Professional Barbershop · Upington</div>
+      <h1 class="hero-title">
+        <span class="l1">My New</span>
+        <span class="l2">Barber Shop</span>
+      </h1>
+      <p class="hero-sub"><span id="tw"></span></p>
+      <div class="hero-btns">
+        <a href="tel:0678123200" class="btn-gold pulse"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-phone"/></svg> Call Now</a>
+        <a href="https://maps.google.com/?q=29+Schroder+St,+Upington" target="_blank" class="btn-outline"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-map-pin"/></svg> Get Directions</a>
       </div>
     </div>
-
-    <!-- RIGHT -->
-    <div class="hero-right">
-      <img src="Screenshot_20260401_145056_Maps.png" alt="My New Barber Shop – professional service in Upington" />
-      <div class="hero-right-stat">
-        <span class="st-num">4.8 ★</span>
-        <span class="st-lbl">Google Reviews</span>
-      </div>
-    </div>
-
     <div class="scroll-hint"><span>Scroll</span><div class="ln"></div></div>
   </section>
 
